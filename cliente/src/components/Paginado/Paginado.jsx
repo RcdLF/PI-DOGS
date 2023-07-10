@@ -2,7 +2,6 @@ import React from "react";
 import patita from '../../Images/PAW-ICON.jpg'
 
 function Paginado({ currentPage, totalPages, handlePageChange }) {
-  console.log(totalPages);
   return (
     <div className=' flex items-center justify-center gap-5 mb-10 z-10'>
       <div className="bg-amber-400 p-1 rounded-xl text-center font-bold text-gray-300 hover:bg-blue-700">

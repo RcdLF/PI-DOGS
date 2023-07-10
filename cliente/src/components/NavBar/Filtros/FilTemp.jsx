@@ -2,19 +2,16 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getByTemperament, getTemperaments } from "../../../Redux/Actions";
 
-function FilTemp() {
+function FilTemp({ setLoading }) {
   const dispatch = useDispatch();
   const allTemps = useSelector((state) => state.temperaments);
 
-
-  useEffect(() => {
-    dispatch(getTemperaments());
-  }, [dispatch]);
 
   const handleSelect = (e) => {
     const value = e.target.value;
     e.preventDefault();
     dispatch(getByTemperament(value));
+    setLoading(true)
   };
 
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { filtroCreado, getAllDogs } from "../../../Redux/Actions";
 
-function FilCreado() {
+function FilCreado({setLoading}) {
   const dispatch = useDispatch();
 
   const handleFilter = (e) => {
@@ -10,6 +10,7 @@ function FilCreado() {
     e.preventDefault();
     if(value !=="Created")dispatch(getAllDogs())
     dispatch(filtroCreado(value));
+    setLoading(true)
   };
 
   return (

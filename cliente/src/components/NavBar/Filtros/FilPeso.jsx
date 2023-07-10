@@ -2,13 +2,14 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { filtroByWeight } from "../../../Redux/Actions";
 
-function FilPeso() {
+function FilPeso({setLoading}) {
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const value = e.target.value;
     e.preventDefault();
     dispatch(filtroByWeight(value));
+    setLoading(true)
   };
 
   return (

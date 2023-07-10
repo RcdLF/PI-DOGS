@@ -2,6 +2,11 @@ const { Dog, Temperament, Dog_temperament } = require("../db");
 
 const getTemperamentById = async (id) => {
     try {
+
+      if(id === 'All'){
+        return Dog.findAll({ include: [Temperament] });
+      }
+
   const temperament = await Temperament.findByPk(id, {
     include: {
       model: Dog ,

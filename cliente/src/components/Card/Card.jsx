@@ -1,18 +1,34 @@
 import React from "react";
 import Perrito from "../../Images/Loader.gif";
+import { getIdDog } from "../../Redux/Actions";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const Card = ({ name, img, temp, peso }) => {
+const Card = ({ id, name, img, temp, peso }) => {
+  const dispatch = useDispatch();
+  const navegation = useNavigate();
 
-    const mapTemp = temp?.map((e) => {
-      return e.name;
-    });
-    const fourTemp = mapTemp?.slice(0, 4).join();
+  const mapTemp = temp?.map((e) => {
+    return e.name;
+  });
+  const fourTemp = mapTemp?.slice(0, 4).join();
 
+  const OnClick = () => {
+    dispatch(getIdDog(id))
+    navegation(`/detail/${id}`)
+  };
 
   return (
-    <div className="flex flex-col justify-center items-center z-10 rounded-3xl p-[10px] m-[25px] bg-gradient-to-t from-cyan-500 to-blue-500 cursor-pointer bg-fixed opacity-100 transition duration-300 ease-in-out hover:opacity-80">
+    <div
+      className="flex flex-col justify-center items-center z-10 rounded-3xl p-[10px] m-[25px] bg-gradient-to-t from-cyan-500 to-blue-500 cursor-pointer bg-fixed opacity-100 transition duration-300 ease-in-out hover:opacity-80"
+      onClick={() => {OnClick()}}
+    >
       <div className="">
-        <img src={img} alt={Perrito} className=" w-[300px] h-[200px] rounded-3xl"  />
+        <img
+          src={img}
+          alt={Perrito}
+          className=" w-[300px] h-[200px] rounded-3xl"
+        />
       </div>
       <div className=" text-[20px] font-bold text-center underline underline-offset-1 p-2">
         <p>{name}</p>

@@ -9,15 +9,15 @@ import FilPeso from "./Filtros/FilPeso";
 import Refresh from "./Buttons/Refresh";
 import CreateDog from "./Buttons/CreateDog";
 
-function NavBar() {
+function NavBar({setLoading}) {
   return (
-    <div className="relative flex gap-5 items-center justify-center pt-4 pb-4 bg-blue-500 z-10">
+    <div className="relative w-[100%] flex gap-5 items-center justify-center pt-4 pb-4 bg-blue-500 z-10">
       <Refresh />
-      <SearchBar />
-      <FilCreado />
-      <FilTemp />
-      <FilAlf />
-      <FilPeso />
+      <SearchBar setLoading={setLoading} />
+      <FilCreado setLoading={setLoading} />
+      <FilTemp setLoading={setLoading} />
+      <FilAlf setLoading={setLoading}/>
+      <FilPeso setLoading={setLoading} />
       <CreateDog />
     </div>
   );

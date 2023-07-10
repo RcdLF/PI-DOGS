@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { filterByName } from "../../../Redux/Actions";
 
-function FilAlf() {
+function FilAlf({setLoading}) {
   const dispatch = useDispatch();
-
   const handleChange = (e) => {
-    const value = e.target.value;
-    e.preventDefault();
-    dispatch(filterByName(value));
+      const value = e.target.value;
+      dispatch(filterByName(value));
+      setLoading(true)
   };
 
   return (
@@ -24,7 +23,7 @@ function FilAlf() {
         value="Asc">A - Z</option>
         <option 
   
-        value="Desc">Z-A</option>
+        value="Desc">Z - A</option>
       </select>
     </div>
   );
