@@ -13,7 +13,7 @@ const getAllDogs = async () => {
       await allDogs.data.map(async (e) => {
         const newDog = await Dog.create({
           name: e.name,
-          image: e.image.url,
+          image: e.reference_image_id,
           height: e.height.imperial,
           weight: e.weight.imperial,
           life_span: e.life_span,
